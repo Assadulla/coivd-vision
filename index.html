@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CovidVision Prediction</title>
+</head>
+<body>
+    <h1>CovidVision X-ray Prediction</h1>
+
+    {% if filename %}
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="300">
+        <p><strong>Class:</strong> {{ predicted_class }}</p>
+        <p><strong>Confidence:</strong> {{ confidence }}%</p>
+    {% else %}
+        <p>No image found. Place an image in the test folder or upload one.</p>
+    {% endif %}
+
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload & Predict</button>
+    </form>
+</body>
+</html>

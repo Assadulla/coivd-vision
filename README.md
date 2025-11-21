@@ -1,1 +1,0 @@
-# coivd-vision
